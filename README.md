@@ -9,3 +9,5 @@
 	- Vote préférentiel : 0%
 	- Vote alternatif : 0%
 - 2 jeux de tests :
+	- Premier : 0%
+   	- Second : 0%
