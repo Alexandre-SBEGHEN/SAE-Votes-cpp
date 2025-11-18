@@ -1,4 +1,9 @@
-# Choses à faire :
+## Infos importantes
+
+Nom du zip final : TD_1_E_6_POMET-Jules_REGUIG-Abdelrahmane_SEHIL-FARADJI-Younes_SBEGHEN-Alexandre.zip
+A rendre avant le <span style="color: red">26 novembre</span> à midi
+
+## Choses à faire :
 
 - Un PDF expliquant quels systèmes de votes vous avez codé : 0%
 
@@ -11,3 +16,12 @@
 - 2 jeux de tests :
 	- Premier : 0%
    	- Second : 0%
+- Créer les projets **QTCreator** pour chaque vote
+	- Vote majoritaire 2 tours : 0%
+   	- Vote préférentiel : 0%
+  	- Vote alternatif : 0%
+
+
+## Liens importants : 
+
+- https://en.wikipedia.org/wiki/Test_oracle
