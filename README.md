@@ -1,5 +1,10 @@
 ## Infos importantes
 
+Les votes à recréer :
+- Majoritaire à 2 tours
+- Alternatif
+- Préférentiel
+
 Nom du zip final : TD_1_E_6_POMET_REGUIG_SEHIL-FARADJI_SBEGHEN.zip
 
 A rendre avant le <span style="color: red">26 novembre</span> à midi
