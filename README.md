@@ -1,6 +1,6 @@
 ## Infos importantes
 
-Nom du zip final : TD_1_E_6_POMET-Jules_REGUIG-Abdelrahmane_SEHIL-FARADJI-Younes_SBEGHEN-Alexandre.zip
+Nom du zip final : TD_1_E_6_POMET_REGUIG_SEHIL-FARADJI_SBEGHEN.zip
 
 A rendre avant le <span style="color: red">26 novembre</span> à midi
 
@@ -26,3 +26,4 @@ A rendre avant le <span style="color: red">26 novembre</span> à midi
 ## Liens importants : 
 
 - https://en.wikipedia.org/wiki/Test_oracle
+- https://ens.casali.me/category/sae/sae1-02/
