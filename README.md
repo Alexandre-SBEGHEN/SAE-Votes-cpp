@@ -7,13 +7,13 @@ Les votes à recréer :
 
 Nom du zip final : TD_1_E_6_POMET_REGUIG_SEHIL-FARADJI_SBEGHEN.zip
 
-A rendre avant le <span style="color: red">26 novembre</span> à midi
+A rendre avant le 26 novembre à midi
 
 ## Choses à faire :
 
 - Un PDF expliquant quels systèmes de votes vous avez codé : 0%
 
-- Le diaporama pour la présentation : 0%
+- Le [https://www.canva.com/design/DAG5IqqGowo/eoAq17fjNI2dBbtZ4W1rNQ/edit?utm_content=DAG5IqqGowo&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton](diaporama) pour la présentation : 0%
 
 - Les 3 codes pour les 3 systèmes de vote :
 	- Vote majoritaire 2 tours : 40%
