@@ -33,4 +33,4 @@ A rendre avant le <span style="color: red">26 novembre</span> à midi
 - https://en.wikipedia.org/wiki/Test_oracle
 - https://ens.casali.me/category/sae/sae1-02/
 - https://ametice.univ-amu.fr/course/view.php?id=145488
-- https://ametice.univ-amu.fr/mod/url/view.php?id=4498286
+- https://ametice.univ-amu.fr/mod/url/view.php?id=4498286](https://fr.wikipedia.org/wiki/Syst%C3%A8me_%C3%A9lectoral
