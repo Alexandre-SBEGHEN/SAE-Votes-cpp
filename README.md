@@ -34,3 +34,21 @@ A rendre avant le 26 novembre à midi
 - https://ens.casali.me/category/sae/sae1-02/
 - https://ametice.univ-amu.fr/course/view.php?id=145488
 - https://fr.wikipedia.org/wiki/Syst%C3%A8me_%C3%A9lectoral
+
+## Exemple vote préférentiel
+### Borda classique
+| 3 candidats (n=3) | Candidat 1 | Candidat 2 | Candidat 3 |
+|-|-|-|-|
+| Voies en pos 1 | 10 | 6 | 2 |
+| Voies en pos 2 | 5 | 10 | 8 |
+| Voies en pos 3 | 3 | 2 | 8 |
+| Total points | 43 | 40 | 30 |
+
+### Borda amélioré (avec les points au carré)
+
+| 3 candidats (n=3) | Candidat 1 | Candidat 2 | Candidat 3 |
+|-|-|-|-|
+| Voies en pos 1 | 10 | 6 | 2 |
+| Voies en pos 2 | 5 | 10 | 8 |
+| Voies en pos 3 | 3 | 2 | 8 |
+| Total points | 113 | 96 | 58 |
