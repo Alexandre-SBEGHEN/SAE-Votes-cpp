@@ -5,7 +5,7 @@ Les votes à recréer :
 - Alternatif
 - Préférentiel
 
-Nom du zip final : TD_1_E_6_POMET_REGUIG_SEHIL-FARADJI_SBEGHEN.zip
+Nom du zip final : TD_1_E_6_POMET_REGUIG_SEHIL-FARADJI_SBEGHEN-MAGNIN.zip
 
 A rendre avant le 26 novembre à midi
 
