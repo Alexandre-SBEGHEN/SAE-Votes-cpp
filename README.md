@@ -11,13 +11,13 @@ A rendre avant le 26 novembre à midi
 
 ## Choses à faire :
 
-- Un PDF expliquant quels systèmes de votes vous avez codé : 0%
+- Un PDF expliquant quels systèmes de votes vous avez codé : 10%
 
 - Le <a href="https://www.canva.com/design/DAG5IqqGowo/eoAq17fjNI2dBbtZ4W1rNQ/edit?utm_content=DAG5IqqGowo&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton">diaporama</a> pour la présentation : 0%
 
 - Les 3 codes pour les 3 systèmes de vote :
 	- Vote majoritaire 2 tours : 40%
-	- Vote préférentiel : 0%
+	- Vote préférentiel : 50%
 	- Vote alternatif : 0%
 - 2 jeux de tests :
 	- Premier : 0%
