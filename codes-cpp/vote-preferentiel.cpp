@@ -4,8 +4,9 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-using mat = vector<vector<size_t>>; //Création de l'alias de la matrice
-using mat_ligne = vector<size_t>;
+using mat_ligne = vector<size_t>; //Création de l'alias ligne de la matrice
+using mat = vector<mat_ligne>; //Création de l'alias de la matrice
+
 
 mat generer_matrice(const size_t & lignes, const size_t & colonnes) {
     mat_ligne ligne(colonnes, 0);
@@ -29,24 +30,39 @@ void calculer_points(mat & matrice) {
     }
 }
 
+void saisir_points();
+
 int main() {
-    mat matrice = {
-        {10, 6, 2},
-        {5, 10, 8},
-        {3, 2, 8},
-        {0, 0, 0}
-    };
+    //Déclarer la matrice candidats/votes
+    mat matrice_candidats_votes;
 
-    calculer_points(matrice);
+    //Laisser l'utilisateur choisir le nombre de candidats et de votants, puis générer la matrice
+    size_t nb_candidats, nb_votants;
+    cout << "Combien y a-t-il de candidats ? ";
+    cin >> nb_candidats;
+    cout << "Combien y a-t-il de votants ? ";
+    cin >> nb_votants;
+    matrice_candidats_votes = generer_matrice(nb_candidats + 1, nb_candidats);
 
+    //Saisie des différents choix des votants
+    for (size_t num_votant = 0; num_votant < nb_votants; ++num_votant) {
+        cout << "########## Votant numéro " << num_votant + 1 << " ##########" << endl;  
+        for (size_t num_choix = 0; num_choix < nb_candidats; ++num_choix) {
+            //cout << "Votant " << num_votant+1 << ", choix " << num_choix+1 << endl;
 
+            size_t choix;
+            cout << "Quel est le choix " << num_choix + 1 << " du votant " << num_votant + 1<< " ? ";
+            cin >> choix;
 
-
-    //afficher la matrice
-    for (size_t i = 0; i < matrice.size(); ++i) {
-        for (size_t j = 0; j < matrice[i].size(); ++j) {
-            cout << matrice[i][j] << ' ';
-            if (j >= matrice[0].size() - 1) cout << endl;
+            matrice_candidats_votes[num_choix][choix] += 1;
+        }
+    }
+    
+    //Afficher la matrice
+    for (size_t i = 0; i < matrice_candidats_votes.size(); ++i) {
+        for (size_t j = 0; j < matrice_candidats_votes[i].size(); ++j) {
+            cout << matrice_candidats_votes[i][j] << ' ';
+            if (j >= matrice_candidats_votes[0].size() - 1) cout << endl;
         }
     }
     cout << endl;
