@@ -11,7 +11,7 @@ A rendre avant le 26 novembre à midi
 
 ## Choses à faire :
 
-- Un PDF expliquant quels systèmes de votes vous avez codé : 10%
+- Un <a href"https://docs.google.com/document/d/16V2ffskYZMVLUQPwDoNmY2gl9DcnwXjQkej2If6yaAc/edit?usp=sharing"></a> expliquant quels systèmes de votes vous avez codé : 10%
 
 - Le <a href="https://www.canva.com/design/DAG5IqqGowo/eoAq17fjNI2dBbtZ4W1rNQ/edit?utm_content=DAG5IqqGowo&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton">diaporama</a> pour la présentation : 0%
 
