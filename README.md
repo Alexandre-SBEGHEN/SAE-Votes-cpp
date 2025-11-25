@@ -21,7 +21,7 @@ g++ fichier.cpp -o executable
 
 ## Choses à faire :
 
-- Un <a href="https://docs.google.com/document/d/16V2ffskYZMVLUQPwDoNmY2gl9DcnwXjQkej2If6yaAc/edit?usp=sharing">rendu pdf</a> expliquant quels systèmes de votes vous avez codé : 10%
+- Un <a href="https://aixmarseilleuniversite-my.sharepoint.com/:w:/g/personal/jules_pomet_etu_univ-amu_fr/EWViMxVfFelCulVYSCIunKEB0vj-grw2NW2tzANlagCb6g?e=Lsu5IL">rendu pdf</a> expliquant quels systèmes de votes vous avez codé : 10%
 
 - Le <a href="https://www.canva.com/design/DAG5IqqGowo/eoAq17fjNI2dBbtZ4W1rNQ/edit?utm_content=DAG5IqqGowo&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton">diaporama</a> pour la présentation : 0%
 
