@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-
 using namespace std;
 
 /**
@@ -64,12 +63,15 @@ int main() {
         tabGlacePref.push_back(litUneString());
     }
 
+    /*
     cout << endl << "Il y aura combien de votants ? ";
     int nbVotants = litUnEntier();
+    */
     vector<participant> tabParticipant;
+    
 
     cout << endl << "SAISIE DES VOTES DU 1er TOUR :" << endl;
-    for (int i = 0; i < nbVotants; ++i) {
+    for (int i = 0; /*i < nbVotants*/cin; ++i) {
         cout << "Votant " << (i + 1) << ": " << "Nom: ";
         string nom = litUneString();
         cout << "Prénom: ";
@@ -121,11 +123,15 @@ int main() {
     cout << "  2 : " << tabGlacePref[second - 1] << endl;
 
     int votesA = 0, votesB = 0;
-    for (int i = 0; i < nbVotants; ++i) {
+    for (size_t i = 0; cin; ++i) {
+        string ligne;
+        getline(cin, ligne);
+
         cout << tabParticipant[i].prenom << " " << tabParticipant[i].nom << ", votez (1 ou 2) : ";
         int choix2;
         do {
-            cin >> choix2;
+            //cin >> choix2;
+            choix2 = stoi(ligne);
         } while (choix2 != 1 && choix2 != 2);
         if (choix2 == 1)
             votesA++;
