@@ -54,31 +54,31 @@ void affichVectParticipants (const vector<participant> & vPart){
 }
 
 int main() {
-    cout << "-- SCRUTIN MAJORITAIRE A 2 TOURS --" << endl;
-    cout << "Saisissez les 4 parfums en compétition :" << endl;
+    cout << " SCRUTIN MAJORITAIRE A 2 TOURS " << endl;
+    //cout << "Saisissez les 4 parfums en compétition :" << endl;
 
     vector<string> tabGlacePref;
     for (int i = 1; i <= 4; ++i) {
-        cout << "Parfum " << i << " : ";
+        //cout << "Parfum " << i << " : ";
         tabGlacePref.push_back(litUneString());
     }
 
-    /*
-    cout << endl << "Il y aura combien de votants ? ";
+    
+    //cout << endl << "Il y aura combien de votants ? ";
     int nbVotants = litUnEntier();
-    */
+    
     vector<participant> tabParticipant;
     
 
-    cout << endl << "SAISIE DES VOTES DU 1er TOUR :" << endl;
-    for (int i = 0; /*i < nbVotants*/cin; ++i) {
-        cout << "Votant " << (i + 1) << ": " << "Nom: ";
+    //cout << endl << "SAISIE DES VOTES DU 1er TOUR :" << endl;
+    for (int i = 0; i < nbVotants ; ++i) {
+        //cout << "Votant " << (i + 1) << ": " << "Nom: ";
         string nom = litUneString();
-        cout << "Prénom: ";
+        //cout << "Prénom: ";
         string prenom = litUneString();
         int choix;
         do {
-            cout << "  Votre glace préférée (1 à 4) : ";
+            //cout << "  Votre glace préférée (1 à 4) : ";
             choix = litUnEntier();
         } while (choix < 1 || choix > 4);
         tabParticipant.push_back({ nom, prenom, choix });
@@ -91,7 +91,7 @@ int main() {
 
     cout << endl << "Résultats du 1er tour :" << endl;
     for (int i = 1; i <= 4; ++i)
-        cout << "  " << i << " : " << tabGlacePref[i - 1] << " = " << tabVotesPremierTour[i] << " voix" << endl;
+        cout << "  " << i << " : " << tabGlacePref[i - 1] << " = " << tabVotesPremierTour[i] << " voix " << endl;
 
     int maxVotes = 0, gagnant = 1;
     for (int i = 1; i <= 4; ++i) {
@@ -126,6 +126,7 @@ int main() {
     for (size_t i = 0; cin; ++i) {
         string ligne;
         getline(cin, ligne);
+        if (!cin) break;
 
         cout << tabParticipant[i].prenom << " " << tabParticipant[i].nom << ", votez (1 ou 2) : ";
         int choix2;
@@ -147,7 +148,7 @@ int main() {
     else if (votesB > votesA)
         cout << "Gagnant : " << tabGlacePref[second - 1] << endl;
     else
-        cout << "Egalité parfaite au second tour !" << endl;
+        cout << "Egalité" << endl;
 
     return 0;
 }
