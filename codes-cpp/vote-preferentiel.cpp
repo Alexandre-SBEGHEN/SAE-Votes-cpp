@@ -7,7 +7,6 @@ using namespace std;
 using mat_ligne = vector<size_t>; //Création de l'alias ligne de la matrice
 using mat = vector<mat_ligne>; //Création de l'alias de la matrice
 
-
 mat generer_matrice(const size_t & lignes, const size_t & colonnes) {
     mat_ligne ligne(colonnes, 0);
     mat matrice(lignes, ligne);
@@ -54,9 +53,11 @@ int main() {
             cout << "Quel est le choix " << num_choix + 1 << " du votant " << num_votant + 1<< " ? ";
             cin >> choix;
 
-            matrice_candidats_votes[num_choix][choix] += 1;
+            matrice_candidats_votes[num_choix][choix - 1] += 1;
         }
     }
+
+    calculer_points(matrice_candidats_votes);
     
     //Afficher la matrice
     for (size_t i = 0; i < matrice_candidats_votes.size(); ++i) {
