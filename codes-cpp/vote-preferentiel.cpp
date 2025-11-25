@@ -37,13 +37,35 @@ size_t indice_maximum(const ligne & tab) {
     return maxi;
 }
 
+bool est_majuscule(const string & mot) {
+    bool est = true;
+    size_t i = 0;
+    while (i < mot.length()) {
+        if (isalpha(mot[i]) && !isupper(mot[i])) {
+            est = false;
+            break;
+        }
+        ++i;
+    }
+    return est;
+}
+
 int main() {
+    //Enregistrer la dernière/prochaine donnée lue
+    string donnee_lue = "";
+
     //Lire la liste des candidats
-    int nb_candidats = litUnEntier();
+    int nb_candidats = 0;
     vector<string> liste_candidats;
 
-    for (int i = 0; i < nb_candidats; ++i) {
-        liste_candidats.push_back(litUneString());
+    //Lire les candidats jusqu'à tomber sur une ligne en majuscule (= nom de famille)
+    while (cin) {
+        liste_candidats.push_back((donnee_lue == "") ? litUneString() : donnee_lue); //Mettre en valeur de fin la dernière donnée lue
+        ++nb_candidats;
+
+        donnee_lue = litUneString();
+        //Si la donnée prochaine est tout en majuscule, c'est un nom de famille, donc on a fini d'énumérer les candidats
+        if (est_majuscule(donnee_lue)) break;
     }
 
     //Votes
@@ -54,7 +76,9 @@ int main() {
     //Saisie des votes
     while (cin) {
         //Récupérer nom, prenom, glace pref, et si on peut pas récupérer les trois, alors on sort de l'entrée donc on quitte la boucle pour éviter un débordement
-        string nom = litUneString();
+        //Récupérer le nom de famille stocké dans la dernière donnée lue, si c'est déjà fait on vide la donnée lue et on lit une ligne
+        string nom = (donnee_lue == "") ? litUneString() : donnee_lue;
+        donnee_lue = "";
         if (!cin) break;
         string prenom = litUneString();
         if (!cin) break;
