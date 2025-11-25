@@ -9,6 +9,16 @@ Nom du zip final : TD_1_E_6_POMET_REGUIG_SEHIL-FARADJI_SBEGHEN-MAGNIN.zip
 
 A rendre avant le 26 novembre à midi
 
+## Compiler un programme
+- compiler le .cpp en exécutable
+```cpp
+g++ fichier.cpp -o executable
+```
+- lancer l'exécutable
+```cpp
+./fichier_executable < entree
+```
+
 ## Choses à faire :
 
 - Un <a href="https://docs.google.com/document/d/16V2ffskYZMVLUQPwDoNmY2gl9DcnwXjQkej2If6yaAc/edit?usp=sharing">rendu pdf</a> expliquant quels systèmes de votes vous avez codé : 10%
