@@ -27,8 +27,8 @@ g++ fichier.cpp -o fichier
 
 - Les 3 codes pour les 3 systèmes de vote :
 	- Vote majoritaire 2 tours : 80%
-	- Vote préférentiel : 95%
-	- Vote alternatif : 95%
+	- Vote préférentiel : 100%
+	- Vote alternatif : 100%
 - 2 jeux de tests pour chaque vote :
 	- Premier : 66%
    	- Second : 66%
