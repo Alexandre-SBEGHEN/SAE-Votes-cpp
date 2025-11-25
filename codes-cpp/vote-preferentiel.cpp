@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 using namespace std;
 using ligne = vector<size_t>;
 using mat = vector<ligne>;
@@ -26,12 +25,13 @@ int litUnEntier (){
 struct participant {
     string nom;
     string prenom;
-    vector<size_t> choixGlacePref;
+    ligne choixGlacePref;
 };
 
 size_t indice_maximum(const ligne & tab) {
+    if (tab.size() == 0) return 0;
     size_t maxi = 0;
-    for (size_t i = 0; i < tab.size(); ++i) {
+    for (size_t i = 1; i < tab.size(); ++i) {
         if (tab[i] > tab[maxi]) maxi = i;
     }
     return maxi;
@@ -58,7 +58,7 @@ int main() {
         if (!cin) break;
         string prenom = litUneString();
         if (!cin) break;
-        vector<size_t> choixGlacePref;
+        ligne choixGlacePref;
         for (size_t i = 0; i < nb_candidats; ++i) {
             choixGlacePref.push_back(litUnEntier());
             if (!cin) break;
@@ -93,15 +93,13 @@ int main() {
 
     cout << "c'est la glace " << gagnant << " qui a gagne" << endl;
     
-
-
     /*#################### DEBUG
     //Afficher le nombre de candidats
-    cout << "Nombre candidats : " << nb_candidats << endl;
-    for (string i: liste_candidats) cout << i << ", " << endl;
-    cout << "Participants :" << endl;
-    for (participant i: participants) cout << i.prenom << ", ";
-    cout << endl;
+    // cout << "Nombre candidats : " << nb_candidats << endl;
+    // for (string i: liste_candidats) cout << i << ", " << endl;
+    // cout << "Participants :" << endl;
+    // for (participant i: participants) cout << i.prenom << ", ";
+    // cout << endl;
 
     //Mettre des valeurs prédéfinies
     // votes = {

@@ -1,0 +1,42 @@
+3
+Vanille
+Menthe
+Fraise
+SBEGHEN
+Alexandre
+1
+2
+3
+POMET
+Jules
+2
+1
+3
+REGUIG
+Abdel
+2
+1
+3
+SEHIL
+Younes
+3
+1
+2
+CHASSAUD
+Nael
+1
+3
+2
+PETIT
+Noé
+2
+3
+1
+// MATRICE
+// 2 3 1
+// 3 1 2
+// 1 2 3
+// 
+// Vanille = 2*9 + 3*4 + 1*1 = 18 + 12 + 1 = 31
+// Menthe = 3*9 + 1*4 + 2*1 = 27 + 4 + 2 = 33
+// Fraise = 1*9 + 2*4 + 3*1 = 9 + 8 + 3 = 20
