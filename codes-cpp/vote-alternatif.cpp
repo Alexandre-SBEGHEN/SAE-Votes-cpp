@@ -55,10 +55,7 @@ int main() {
 
         
 
-        participant part;
-        part.nom = nom;
-        part.prenom = prenom;
-        part.glacePref = 0;
+        participant part = {nom, prenom, vote};
 
         liste_participants.push_back(part);
         liste_votes[vote - 1] += 1;
