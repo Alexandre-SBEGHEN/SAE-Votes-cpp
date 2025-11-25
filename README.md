@@ -12,11 +12,11 @@ A rendre avant le 26 novembre à midi
 ## Compiler un programme
 - compiler le .cpp en exécutable
 ```cpp
-g++ fichier.cpp -o executable
+g++ fichier.cpp -o fichier
 ```
 - lancer l'exécutable
 ```cpp
-./fichier_executable < entree
+./fichier < entree
 ```
 
 ## Choses à faire :
