@@ -1,4 +1,4 @@
-## Infos importantes test
+## Infos importantes
 
 Les votes à recréer :
 - Majoritaire à 2 tours
