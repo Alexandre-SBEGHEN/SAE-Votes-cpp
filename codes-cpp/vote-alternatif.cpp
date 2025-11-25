@@ -1,8 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <string>
-#include <algorithm>
 using namespace std;
+using ligne = vector<size_t>;
 
 string litUneString (){
     string uneChaine;
@@ -13,7 +12,7 @@ string litUneString (){
     return uneChaine;
 }
 
-int litUnEntier () {
+int litUnEntier (){
     string uneChaine;
     while (true){
         getline (cin, uneChaine);
@@ -22,48 +21,143 @@ int litUnEntier () {
     return stoi(uneChaine);
 }
 
+size_t indice_maximum(const ligne & tab) {
+    if (tab.size() == 0) return 0;
+    size_t maxi = 0;
+    for (size_t i = 1; i < tab.size(); ++i) {
+        if (tab[i] > tab[maxi]) maxi = i;
+    }
+    return maxi;
+}
+
+size_t indice_minimum(const ligne & tab) {
+    if (tab.size() == 0) return 0;
+    size_t mini = 0;
+    for (size_t i = 1; i < tab.size(); ++i) {
+        if (tab[i] < tab[mini]) mini = i;
+    }
+    return mini;
+}
+
+bool test_majorite_absolue(const ligne & tab) {
+    size_t max = indice_maximum(tab);
+    size_t somme = 0;
+    for (size_t i: tab) somme += i;
+    return tab[max] > somme/2;
+}
+
+template <typename T>
+void supprimer_de_tab(T & tab, const size_t & indice) {
+    tab.erase(tab.begin() + indice);
+}
+
+bool str_est_dans_tab(const vector<string> & tab, const string & elt) {
+    bool est = false;
+    size_t i = 0;
+    while (i < tab.size()) {
+        if (tab[i] == elt) {
+            est = true;
+            break;
+        }
+        ++i;
+    }
+    return est;
+}
+
 struct participant {
     string nom;
     string prenom;
-    int glacePref;
+    ligne choixGlacePref;
 };
 
 int main() {
-    size_t nombre_candidats = 4;
-
-    //Lire les participants et les stocker dans une liste
+    //Lire la liste des candidats
+    int nb_candidats = litUnEntier();
     vector<string> liste_candidats;
-    for (size_t i = 0; i < nombre_candidats; ++i) {
+
+    for (int i = 0; i < nb_candidats; ++i) {
         liste_candidats.push_back(litUneString());
     }
 
-    //Lire les voies
-    vector<participant> liste_participants;
-    vector<size_t> liste_votes(nombre_candidats, 0);
+    //Votes
+    ligne votes_ligne(nb_candidats, 0);
+    vector<participant> participants;
 
+    //Saisie des votes
     while (cin) {
+        //Récupérer nom, prenom, glace pref, et si on peut pas récupérer les trois, alors on sort de l'entrée donc on quitte la boucle pour éviter un débordement
         string nom = litUneString();
         if (!cin) break;
         string prenom = litUneString();
         if (!cin) break;
-        //string vote_string = ().substr(0, 1)litUneString;
-        int vote = litUnEntier();
-        if (!cin) break;
+        ligne choixGlacePref;
+        for (size_t i = 0; i < nb_candidats; ++i) {
+            choixGlacePref.push_back(litUnEntier());
+            if (!cin) break;
+        }
 
+        //Si on continue, c'est qu'un nouveau votant a été détécté
 
-        cout << nom << endl << prenom << endl << vote << endl;
-
-        
-
-        participant part = {nom, prenom, vote};
-
-        liste_participants.push_back(part);
-        liste_votes[vote - 1] += 1;
-
-        
+        //Ajouter le participant à la liste des participants
+        participant part = {nom, prenom, choixGlacePref};
+        participants.push_back(part);
     }
 
-    for (size_t i: liste_votes) cout << i << endl;
+    //Tours
+    ligne votes(nb_candidats, 0); //Initialiser les votes de tous les candidats à 0
+    size_t tour = 0; //0 correspond au premier tour, 1 au second, etc
+    while (true) { // Tant qu'il n'y a pas de majorité absolue on ajoute aux candidats les choix d'indice 'tour'
+        //cout << "---------------" << endl << "Tour " << tour + 1 << endl;
+        if (tour+1 > nb_candidats) return 1;
+        
+        for (participant part: participants) {
+            if (tour == 0 || str_est_dans_tab(liste_candidats, liste_candidats[part.choixGlacePref[tour] - 1])) votes[part.choixGlacePref[tour] - 1] += 1;
+        }
+
+        //str_est_dans_tab(liste_candidats, liste_candidats[part.choixGlacePref[tour] - 1])
+
+        //###
+        // cout << "Votes : ";
+        // for (size_t i: votes) cout << i << ' ';
+        // cout << endl;
+        //###
+
+        //S'arrêter s'il y a majorité absolue
+        if (test_majorite_absolue(votes)) break;
+
+        //Si on continue, c'est qu'il n'y a pas majorité absolue
+        size_t plus_faible_choix = indice_minimum(votes);
+        supprimer_de_tab(votes, plus_faible_choix);
+        supprimer_de_tab(liste_candidats, plus_faible_choix);
+
+        ++tour;
+    }
+
+    //cout << endl << "Il y a majorité absolue !" << endl;
+
+    //Trouver la glace gagnante
+    size_t indice_gagnant = indice_maximum(votes);
+    string gagnant = liste_candidats[indice_gagnant];
+
+    cout << "c'est la glace " << gagnant << " qui a gagne" << endl;
+
+    
+
+
+
+    /*#################### DEBUG
+    for (participant part: participants) {
+        cout << "----------" << endl;
+        cout << "Nom :\t\t" << part.nom << endl;
+        cout << "Prénom :\t" << part.prenom << endl;
+        cout << "Choix :\t\t";
+        for (size_t ch: part.choixGlacePref) cout << ch << ' ';
+        cout << endl;
+    }
+    //##################*/
+
+
+    
 
     return 0;
 }

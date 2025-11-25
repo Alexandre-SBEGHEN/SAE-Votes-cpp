@@ -88,7 +88,7 @@ int main() {
     //Trouver la glace gagnante
     ligne resultat;
     for (ligne i: votes) resultat.push_back(i[i.size() - 1]);
-    auto indice_gagnant = indice_maximum(resultat);
+    size_t indice_gagnant = indice_maximum(resultat);
     string gagnant = liste_candidats[indice_gagnant];
 
     cout << "c'est la glace " << gagnant << " qui a gagne" << endl;

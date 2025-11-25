@@ -1,0 +1,91 @@
+//Nombre de glaces
+5
+//Les glaces
+Vanille
+Choco
+Menthe
+Mangue
+Lavande
+//Les votants
+LAGOUCHE
+Alexis
+1
+2
+3
+4
+5
+PIERRE
+Jean
+2
+3
+1
+5
+4
+BOGDANOV
+Igor
+3
+4
+5
+1
+2
+CASALI
+Alain
+3
+5
+4
+2
+1
+SBEGHEN
+Alexandre
+5
+3
+1
+4
+2
+SEHIL
+Younes
+2
+1
+3
+4
+5
+BOOK
+Mac
+5
+4
+3
+2
+1
+MARTIN NEVOT
+Mickael
+1
+5
+2
+4
+3
+SUNG
+Sam
+3
+4
+2
+1
+5
+EL HERMI
+Nesrine
+4
+1
+5
+2
+3
+// [Van, Cho, Men, Man, Lav]
+// [2, 2, 3, 1, 2]
+// [Van, Choco, Men, Lav]
+// [2, 2, 3, 2] + [1, 0, 0, 0]
+// [3, 2, 3, 2]
+// [Van, Men, Lav]
+// [3, 3, 2] + [1, 0, 1]
+// [4, 3, 3]
+// [Van, Lav]
+// [4, 3] + [1, 2]
+// [5, 5]
+// [Lav]
