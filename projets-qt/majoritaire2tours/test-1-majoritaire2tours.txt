@@ -1,0 +1,22 @@
+//liste des glaces
+Choco
+Banane
+Mangue
+Fraises
+//voila la liste des joueurs
+//et encore un autre commentaire
+AROUSSI BENTATA
+Adam
+1
+ACEMYAN DE OLIVEIRA
+Ewan
+2
+ACH                     
+Sofia
+1
+AGGAB
+Mohammed
+3
+AHAMED
+Nasser
+1

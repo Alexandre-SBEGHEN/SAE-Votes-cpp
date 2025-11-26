@@ -1,0 +1,41 @@
+//Nombre de glaces
+//Les glaces
+Lavande
+Menthe
+//Les votants
+//Un commentaire
+AL-HMAR
+Mohamed
+1
+2
+EUDE
+Jean
+2
+1
+JEAN
+Jean
+1
+2
+ARDISSON
+Thierry
+1
+2
+MOUSE
+Mickey
+2
+1
+MARTIN NEVOT
+Mickael
+2
+1
+//commentaire random
+COLA
+Coca
+1
+2
+//blablabla
+BAB
+Ke
+//hihihi
+1
+2
