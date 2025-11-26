@@ -1,5 +1,4 @@
 //Nombre de glaces
-5
 //Les glaces
 Vanille
 Choco

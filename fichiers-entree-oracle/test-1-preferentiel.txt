@@ -1,5 +1,4 @@
 //Nombre de glaces
-2
 //Les glaces
 Lavande
 Menthe
