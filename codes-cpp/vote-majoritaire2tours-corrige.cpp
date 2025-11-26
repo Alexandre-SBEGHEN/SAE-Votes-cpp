@@ -51,23 +51,10 @@ void supprimer_de_tab(T & tab, const size_t & indice) {
     tab.erase(tab.begin() + indice);
 }
 
-bool str_est_dans_tab(const vector<string> & tab, const string & elt) {
-    bool est = false;
-    size_t i = 0;
-    while (i < tab.size()) {
-        if (tab[i] == elt) {
-            est = true;
-            break;
-        }
-        ++i;
-    }
-    return est;
-}
-
 struct participant {
     string nom;
     string prenom;
-    ligne choixGlacePref;
+    int glacePref;
 };
 
 bool est_majuscule(const string & mot) {
@@ -102,7 +89,7 @@ int main() {
     }
 
     //Votes
-    ligne votes_ligne(nb_candidats, 0);
+    ligne votes(nb_candidats, 0);
     vector<participant> participants;
 
     //Saisie des votes
@@ -111,69 +98,68 @@ int main() {
         //Récupérer le nom de famille stocké dans la dernière donnée lue, si c'est déjà fait on vide la donnée lue et on lit une ligne
         string nom = (donnee_lue == "") ? litUneString() : donnee_lue;
         donnee_lue = "";
-        if (!cin) break;
+        if (!cin || nom.substr(0, 1) == "#") break;
         string prenom = litUneString();
         if (!cin) break;
-        ligne choixGlacePref;
-        for (size_t i = 0; i < nb_candidats; ++i) {
-            choixGlacePref.push_back(litUnEntier());
-            if (!cin) break;
-        }
+        int glacePref = litUnEntier();
 
         //Si on continue, c'est qu'un nouveau votant a été détécté
 
         //Ajouter le participant à la liste des participants
-        participant part = {nom, prenom, choixGlacePref};
+        participant part = {nom, prenom, glacePref};
         participants.push_back(part);
     }
 
-    //Tours
-    ligne votes(nb_candidats, 0); //Initialiser les votes de tous les candidats à 0
-    size_t tour = 0; //0 correspond au premier tour, 1 au second, etc
-    while (true) { // Tant qu'il n'y a pas de majorité absolue on ajoute aux candidats les choix d'indice 'tour'
-        //cout << "---------------" << endl << "Tour " << tour + 1 << endl;
-        if (tour+1 > nb_candidats) return 1;
-        
-        for (participant part: participants) {
-            if (tour == 0 || str_est_dans_tab(liste_candidats, liste_candidats[part.choixGlacePref[tour] - 1])) votes[part.choixGlacePref[tour] - 1] += 1;
-        }
-
-        //str_est_dans_tab(liste_candidats, liste_candidats[part.choixGlacePref[tour] - 1])
-
-        //###
-        // cout << "Votes : ";
-        // for (size_t i: votes) cout << i << ' ';
-        // cout << endl;
-        //###
-
-        //S'arrêter s'il y a majorité absolue
-        if (test_majorite_absolue(votes)) break;
-
-        //Si on continue, c'est qu'il n'y a pas majorité absolue
-        size_t plus_faible_choix = indice_minimum(votes);
-        supprimer_de_tab(votes, plus_faible_choix);
-        supprimer_de_tab(liste_candidats, plus_faible_choix);
-
-        ++tour;
+    //Premier tour
+    for (participant part: participants) {
+        votes[part.glacePref - 1] += 1;
     }
 
-    //cout << endl << "Il y a majorité absolue !" << endl;
+    //Tester la majorité absolue
+    if (!test_majorite_absolue(votes)) {
+        vector<string> liste_candidats_second;
+        for (string i: liste_candidats) liste_candidats_second.push_back(i);
+        while (votes.size() > 2) {
+            //Garder les 2 meilleurs
+            size_t plus_faible = indice_minimum(votes);
+            supprimer_de_tab(votes, plus_faible);
+            supprimer_de_tab(liste_candidats_second, plus_faible);
+        }
+        //Reset les votes
+        votes = {0, 0, 0, 0};
+        participants.resize(0);
+
+        //Nouvelle saisie des votes
+        while (cin) {
+            //Récupérer nom, prenom, glace pref, et si on peut pas récupérer les trois, alors on sort de l'entrée donc on quitte la boucle pour éviter un débordement
+            //Récupérer le nom de famille stocké dans la dernière donnée lue, si c'est déjà fait on vide la donnée lue et on lit une ligne
+            string nom = (donnee_lue == "") ? litUneString() : donnee_lue;
+            donnee_lue = "";
+            if (!cin) break;
+            string prenom = litUneString();
+            if (!cin) break;
+            int glacePref = litUnEntier();
+
+            //Si on continue, c'est qu'un nouveau votant a été détécté
+
+            //Ajouter le participant à la liste des participants si le vote fait partie des 2 meilleurs
+            if (find(liste_candidats_second.begin(), liste_candidats_second.end(), liste_candidats[glacePref - 1]) != liste_candidats.end()) {
+                participant part = {nom, prenom, glacePref};
+                participants.push_back(part);
+            }
+        }
+
+        for (participant part: participants) {
+            votes[part.glacePref - 1] += 1;
+        }
+    }
 
     //Trouver la glace gagnante
     size_t indice_gagnant = indice_maximum(votes);
     string gagnant = liste_candidats[indice_gagnant];
     cout << "c'est la glace " << gagnant << " qui a gagne" << endl;
 
-    /*#################### DEBUG
-    for (participant part: participants) {
-        cout << "----------" << endl;
-        cout << "Nom :\t\t" << part.nom << endl;
-        cout << "Prénom :\t" << part.prenom << endl;
-        cout << "Choix :\t\t";
-        for (size_t ch: part.choixGlacePref) cout << ch << ' ';
-        cout << endl;
-    }
-    //##################*/
+    
 
     return 0;
 }
